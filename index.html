@@ -1,0 +1,158 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Canal Tradicional · Iquique</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,300;9..144,500;9..144,600;9..144,700&family=IBM+Plex+Sans:wght@400;500;600&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/leaflet/1.9.4/leaflet.min.css">
+<script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/4.4.1/chart.umd.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/leaflet/1.9.4/leaflet.min.js"></script>
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+<div class="wrap topbar">
+  <div class="brand">Nestlé · Samka</div>
+  <div class="period">Canal Tradicional Iquique — Oct 2025 – Ago 2026</div>
+</div>
+
+<div class="wrap intro">
+  <p class="eyebrow">Vista general</p>
+  <h1>El canal tradicional en cinco números</h1>
+</div>
+
+<div class="wrap kpi-row">
+  <div class="kpi kpi-lg">
+    <div class="kpi-label">Venta total del periodo</div>
+    <div class="kpi-num">$3.782<span>M</span></div>
+    <div class="kpi-sub">248.446 cajas movidas</div>
+  </div>
+  <div class="kpi">
+    <div class="kpi-label">Clientes activos</div>
+    <div class="kpi-num">1.802</div>
+    <div class="kpi-sub">con compra real en el periodo</div>
+  </div>
+  <div class="kpi">
+    <div class="kpi-label">Clientes totales</div>
+    <div class="kpi-num">2.065</div>
+    <div class="kpi-sub">han comprado alguna vez (histórico 2025-2026)</div>
+  </div>
+  <div class="kpi">
+    <div class="kpi-label">Vendedores en ruta</div>
+    <div class="kpi-num">6</div>
+    <div class="kpi-sub">cubriendo el canal tradicional</div>
+  </div>
+  <div class="kpi kpi-alt">
+    <div class="kpi-label">Facturas emitidas</div>
+    <div class="kpi-num">1.152</div>
+    <div class="kpi-sub">Canal Directo (Macul) — negocio aparte</div>
+  </div>
+</div>
+
+<section class="block wrap reveal" id="mapa">
+  <p class="eyebrow">Territorio</p>
+  <h2>Dónde está la venta, de verdad</h2>
+  <p class="lede">Mapa real (OpenStreetMap) con círculos proporcionales a la venta de cada comuna — incluye hasta los casos aislados fuera de la región. Haz clic en cualquier círculo para ver el detalle.</p>
+  <div id="mapaReal" class="mapa-real"></div>
+</section>
+
+<section class="block wrap reveal" id="comunas">
+  <p class="eyebrow">Territorio</p>
+  <h2>Cada vendedor domina zonas distintas</h2>
+  <p class="lede">La matriz muestra cuánto vende cada vendedor en cada comuna — pasa el mouse sobre cualquier celda para ver el monto exacto. Al lado, la participación de cada comuna sobre la venta total.</p>
+
+  <div class="two-col">
+    <div class="chart-box heatmap-box">
+      <div class="heatmap-title">Venta por vendedor y comuna ($)</div>
+      <div id="heatmap" class="heatmap-grid"></div>
+      <div class="heatmap-legend">
+        <span>Menos venta</span>
+        <div class="legend-scale"></div>
+        <span>Más venta</span>
+      </div>
+    </div>
+    <div class="chart-box">
+      <div class="chart-toggle">
+        <button class="toggle-btn active" data-chart="donut">% del total</button>
+        <button class="toggle-btn" data-chart="bar">Venta ($)</button>
+      </div>
+      <canvas id="chartComunas"></canvas>
+    </div>
+  </div>
+  <div class="side-note" style="margin-top:24px;">
+    <span class="n">Yhovanka Cartagena</span> cubre casi todas las comunas pequeñas (Pica, Pozo Almonte, Huara, Camiña) sola, mientras que Iquique y Alto Hospicio se reparten entre el resto del equipo.
+  </div>
+</section>
+
+<section class="block wrap reveal" id="facturas">
+  <p class="eyebrow">Canal Directo (Macul) — negocio aparte del canal tradicional</p>
+  <h2>Cuánto papel se necesita para facturar</h2>
+  <p class="lede">Esta sección es del Sell-In directo a las 9 cadenas grandes, no del canal tradicional — es la única base con número de documento de factura.</p>
+
+  <div class="fact-grid">
+    <div class="fact-card">
+      <div class="fact-num">1.152</div>
+      <div class="fact-label">facturas en 11 meses</div>
+    </div>
+    <div class="fact-card">
+      <div class="fact-num">2 – 40</div>
+      <div class="fact-label">hojas por día (2 por factura; un día con 20 facturas usa 40)</div>
+    </div>
+    <div class="fact-card">
+      <div class="fact-num">$4.500</div>
+      <div class="fact-label">costo mensual estimado en papel</div>
+    </div>
+    <div class="fact-card">
+      <div class="fact-num">~24 meses</div>
+      <div class="fact-label">dura una caja completa (5.000 hojas)</div>
+    </div>
+  </div>
+  <div class="glossary">
+    <b>Por qué ese costo:</b> cada factura ocupa 2 hojas. Una resma trae 500 hojas ($4.500 c/u), y una caja trae 10 resmas (5.000 hojas, $45.000). Con el consumo real del periodo (~105 facturas/mes), se necesita comprar solo 1 resma al mes — y una caja completa alcanza para casi 2 años.
+  </div>
+</section>
+
+<section class="block wrap reveal" id="ventas">
+  <p class="eyebrow">Canal Tradicional</p>
+  <h2>Lo que mueve Samka en la calle</h2>
+  <p class="lede">Venta acumulada del comercio de barrio — almacenes, minimarkets y puntos con máquina — a través del distribuidor.</p>
+  <div class="callout-grid">
+    <div class="callout">
+      <div class="num">$3.782M</div>
+      <div class="cap">venta total del periodo</div>
+    </div>
+    <div class="callout">
+      <div class="num">248.446</div>
+      <div class="cap">cajas vendidas en total</div>
+    </div>
+    <div class="callout">
+      <div class="num">$2.099.061</div>
+      <div class="cap">venta promedio por cliente activo</div>
+    </div>
+  </div>
+</section>
+
+<section class="block wrap reveal" id="clientes-clave">
+  <p class="eyebrow">A retener</p>
+  <h2>Los clientes que más aportan</h2>
+  <p class="lede">Ninguno concentra una porción enorme por sí solo — la cartera está repartida, lo que hace al canal más resiliente. Estos 5 son los que más pesan, validados contra el Excel original.</p>
+
+  <div class="client-cards" id="clientCards"></div>
+</section>
+
+<section class="block wrap reveal" id="maquinas">
+  <p class="eyebrow">Compras por zona con máquina</p>
+  <h2>Dónde compran más los puntos con máquina instalada</h2>
+  <p class="lede">Venta total (no promedio) de los clientes que tienen máquina, por comuna — Iquique lidera porque es donde más se compra, no por eficiencia de equipo.</p>
+  <div class="chart-box"><canvas id="chartMaquinas"></canvas></div>
+</section>
+
+<footer class="wrap">
+  <p style="margin-top:8px; font-size:14px;">Periodo analizado: octubre 2025 – agosto 2026</p>
+</footer>
+
+<script src="script.js"></script>
+</body>
+</html>
