@@ -97,13 +97,14 @@ section.block { padding: 76px 0; border-top: 1px solid var(--line); }
 /* ---- heatmap ---- */
 .heatmap-title { font-size: 14px; color: var(--muted); margin-bottom: 16px; }
 .heatmap-grid { display: grid; gap: 3px; overflow-x: auto; }
-.heat-row { display: grid; grid-template-columns: 110px repeat(8, 1fr); gap: 3px; align-items: center; }
-.heat-head { font-size: 10px; color: var(--muted); writing-mode: vertical-rl; text-orientation: mixed; height: 70px; display: flex; align-items: flex-end; padding-bottom: 4px; }
-.heat-rowlabel { font-size: 12px; color: var(--cream); padding-right: 8px; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
+.heat-row { display: grid; grid-template-columns: 130px repeat(6, 1fr); gap: 3px; align-items: center; }
+.heat-head-h { font-size: 12px; color: var(--muted); text-align: center; padding-bottom: 8px; }
+.heat-rowlabel { font-size: 13px; color: var(--cream); padding-right: 8px; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
 .heat-cell {
-  height: 30px; border-radius: 2px; cursor: default; position: relative;
-  transition: transform 0.15s ease;
+  height: 34px; border-radius: 2px; cursor: default; position: relative;
+  transition: transform 0.15s ease; border: 1px solid transparent;
 }
+.heat-cell-max { border: 2px solid var(--sand); box-shadow: 0 0 8px rgba(201,168,118,0.5); }
 .heat-cell:hover { transform: scale(1.12); z-index: 5; }
 .heat-cell .heat-tip {
   position: absolute; bottom: 115%; left: 50%; transform: translateX(-50%);
@@ -132,9 +133,17 @@ section.block { padding: 76px 0; border-top: 1px solid var(--line); }
 
 /* ---- callouts ---- */
 .callout-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 32px; }
-@media (max-width: 860px) { .callout-grid { grid-template-columns: 1fr; } }
+.callout-grid-4 { display: grid; grid-template-columns: repeat(4, 1fr); gap: 24px; }
+@media (max-width: 860px) { .callout-grid, .callout-grid-4 { grid-template-columns: 1fr; } }
 .callout .num { font-size: 56px; font-family: 'Fraunces', serif; color: var(--sand); line-height: 1; }
 .callout .cap { color: var(--muted); font-size: 14px; margin-top: 10px; }
+.tag-fiel, .tag-ocasional, .tag-unico {
+  display: inline-block; padding: 1px 8px; border-radius: 3px; font-size: 12px;
+  font-weight: 600; color: var(--ink); margin-bottom: 2px;
+}
+.tag-fiel { background: var(--sand); }
+.tag-ocasional { background: var(--teal); }
+.tag-unico { background: var(--muted); }
 
 /* ---- client cards ---- */
 .client-cards { display: grid; grid-template-columns: repeat(auto-fit, minmax(210px, 1fr)); gap: 16px; }
