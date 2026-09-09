@@ -26,23 +26,23 @@
 <div class="wrap kpi-row">
   <div class="kpi kpi-lg">
     <div class="kpi-label">Venta total del periodo</div>
-    <div class="kpi-num">$3.782<span>M</span></div>
-    <div class="kpi-sub">248.446 cajas movidas</div>
+    <div class="kpi-num">$3.753<span>M</span></div>
+    <div class="kpi-sub">246.373 cajas · solo clientes con 2+ meses de compra</div>
   </div>
   <div class="kpi">
     <div class="kpi-label">Clientes activos</div>
-    <div class="kpi-num">1.802</div>
-    <div class="kpi-sub">con compra real en el periodo</div>
+    <div class="kpi-num">1.649</div>
+    <div class="kpi-sub">con 2+ compras en el periodo</div>
   </div>
   <div class="kpi">
     <div class="kpi-label">Clientes totales</div>
     <div class="kpi-num">2.065</div>
-    <div class="kpi-sub">han comprado alguna vez (histórico 2025-2026)</div>
+    <div class="kpi-sub">han comprado alguna vez (2025-2026, sin 2024)</div>
   </div>
   <div class="kpi">
     <div class="kpi-label">Vendedores en ruta</div>
-    <div class="kpi-num">6</div>
-    <div class="kpi-sub">cubriendo el canal tradicional</div>
+    <div class="kpi-num">7</div>
+    <div class="kpi-sub">nombrados — 1 con actividad casi nula (posible manager)</div>
   </div>
   <div class="kpi kpi-alt">
     <div class="kpi-label">Facturas emitidas</div>
@@ -50,6 +50,31 @@
     <div class="kpi-sub">Canal Directo (Macul) — negocio aparte</div>
   </div>
 </div>
+
+<section class="block wrap reveal" id="segmentacion">
+  <p class="eyebrow">Comportamiento de compra</p>
+  <h2>No todos los clientes son igual de fieles</h2>
+  <p class="lede">Separamos a los clientes según cuántos meses compraron dentro del periodo. Los "Único" (una sola compra) quedan fuera del resto del dashboard — no representan negocio recurrente.</p>
+
+  <div class="callout-grid-4">
+    <div class="callout">
+      <div class="num">$6.588M</div>
+      <div class="cap">venta histórica (ene-2025 a ago-2026), solo clientes con 2+ compras</div>
+    </div>
+    <div class="callout">
+      <div class="num">1.278</div>
+      <div class="cap"><span class="tag-fiel">Fieles</span> — compran más de la mitad de los meses (93,7% de la venta del periodo)</div>
+    </div>
+    <div class="callout">
+      <div class="num">371</div>
+      <div class="cap"><span class="tag-ocasional">Ocasionales</span> — compran 2+ meses, pero menos de la mitad (5,6% de la venta)</div>
+    </div>
+    <div class="callout">
+      <div class="num">153</div>
+      <div class="cap"><span class="tag-unico">Único</span> — compraron una sola vez (0,8% de la venta — excluidos del resto del análisis)</div>
+    </div>
+  </div>
+</section>
 
 <section class="block wrap reveal" id="mapa">
   <p class="eyebrow">Territorio</p>
@@ -118,18 +143,22 @@
   <p class="eyebrow">Canal Tradicional</p>
   <h2>Lo que mueve Samka en la calle</h2>
   <p class="lede">Venta acumulada del comercio de barrio — almacenes, minimarkets y puntos con máquina — a través del distribuidor.</p>
-  <div class="callout-grid">
+  <div class="callout-grid-4">
     <div class="callout">
-      <div class="num">$3.782M</div>
-      <div class="cap">venta total del periodo</div>
+      <div class="num">$3.753M</div>
+      <div class="cap">venta total del periodo (clientes con 2+ compras)</div>
     </div>
     <div class="callout">
-      <div class="num">248.446</div>
+      <div class="num">246.373</div>
       <div class="cap">cajas vendidas en total</div>
     </div>
     <div class="callout">
-      <div class="num">$2.099.061</div>
-      <div class="cap">venta promedio por cliente activo</div>
+      <div class="num">$2.275.713</div>
+      <div class="cap">venta promedio por cliente</div>
+    </div>
+    <div class="callout">
+      <div class="num">$1.375.602</div>
+      <div class="cap">venta mediana (el cliente "típico" real — el promedio sube por los pocos clientes grandes)</div>
     </div>
   </div>
 </section>
@@ -150,6 +179,7 @@
 </section>
 
 <footer class="wrap">
+  <p class="serif" style="font-size:22px; color:var(--cream);">David Salvatierra — Práctica Nestlé Chile</p>
   <p style="margin-top:8px; font-size:14px;">Periodo analizado: octubre 2025 – agosto 2026</p>
 </footer>
 
