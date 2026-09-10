@@ -26,14 +26,23 @@ const clientesClave = [
   { nombre: 'Administradora de Ventas al Detalle', tipo: 'Pronto Copec C-Store', comuna: 'Pozo Almonte', venta: 22726931, cajas: 1165, pct: 0.60 }
 ];
 
-// Compras totales de clientes CON maquina, por comuna (no promedio por maquina)
+// Maquinas y venta por vendedor (deduplicado correctamente)
+const maquinasPorVendedor = [
+  { vendedor: 'Alexis Inostroza', maquinas: 233, venta: 748922734 },
+  { vendedor: 'Yhovanka Cartagena', maquinas: 269, venta: 662903012 },
+  { vendedor: 'Gonzalo Echeverría', maquinas: 356, venta: 638992463 },
+  { vendedor: 'Francisco Montero', maquinas: 333, venta: 632593794 },
+  { vendedor: 'Danilo Baros', maquinas: 357, venta: 532617498 },
+  { vendedor: 'Evelin Muñoz', maquinas: 340, venta: 527023675 },
+  { vendedor: 'Guillermo Frez', maquinas: 2, venta: 3612134 }
+];
 const maquinas = {
   labels: ['Iquique', 'Alto Hospicio', 'Pozo Almonte', 'Pica', 'Huara', 'María Elena', 'Camiña'],
   compras: [2705663601, 1120885020, 381960524, 218201989, 12730341, 9280658, 5389774],
   nMaquinas: [984, 711, 162, 70, 8, 1, 9]
 };
 
-// Comunas con coordenadas reales, para el mapa (verificadas, filtradas: sin clientes de compra unica)
+// Comunas con coordenadas reales, para el mapa (verificadas, no todas tienen maquina)
 const mapaComunas = [
   { nombre: 'Iquique',        lat: -20.2439, lng: -70.1389, venta: 2103705570 },
   { nombre: 'Alto Hospicio',  lat: -20.2569, lng: -70.0219, venta: 1047664817 },
@@ -211,6 +220,14 @@ new Chart(document.getElementById('chartMaquinas'), {
       x: { grid: { display: false } }
     }
   }
+});
+
+// ============ TABLA MAQUINAS POR VENDEDOR ============
+const tbodyMaq = document.getElementById('tablaMaquinasVendedor');
+maquinasPorVendedor.forEach(v => {
+  const tr = document.createElement('tr');
+  tr.innerHTML = `<td>${v.vendedor}</td><td class="num" style="color:var(--cream)">${v.maquinas}</td><td class="num" style="color:var(--sand)">${clpFmt(v.venta)}</td>`;
+  tbodyMaq.appendChild(tr);
 });
 
 // ============ MAPA REAL (Leaflet + OpenStreetMap, sin costo/API key) ============
