@@ -157,6 +157,15 @@ section.block { padding: 76px 0; border-top: 1px solid var(--line); }
 .client-card .cval { font-family: 'Fraunces', serif; font-size: 24px; color: var(--sand); }
 .client-card .cmeta { font-size: 12px; color: var(--muted); margin-top: 6px; }
 
+/* ---- tabla (usada tambien en maquinas por vendedor) ---- */
+table.risk { width: 100%; border-collapse: collapse; font-size: 15px; margin-top: 16px; }
+table.risk th {
+  text-align: left; color: var(--muted); font-weight: 500; font-size: 13px;
+  padding: 0 0 12px; border-bottom: 1px solid var(--line);
+}
+table.risk td { padding: 14px 0; border-bottom: 1px solid var(--line); color: var(--cream); }
+table.risk td.num { font-variant-numeric: tabular-nums; text-align: right; }
+
 footer { padding: 56px 0 80px; color: var(--muted); font-size: 14px; }
 
 /* ---- reveal ---- */
