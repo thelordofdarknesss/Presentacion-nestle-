@@ -54,7 +54,7 @@
 <section class="block wrap reveal" id="segmentacion">
   <p class="eyebrow">Comportamiento de compra</p>
   <h2>No todos los clientes son igual de fieles</h2>
-  <p class="lede">Separamos a los clientes según cuántos meses compraron dentro del periodo. Los "Único" (una sola compra) quedan fuera del resto del dashboard — no representan negocio recurrente.</p>
+  <p class="lede">Separamos a los clientes según cuántos meses compraron dentro del periodo. Los "Cluster C" (una sola compra) quedan fuera del resto del dashboard — no representan negocio recurrente.</p>
 
   <div class="callout-grid-4">
     <div class="callout">
@@ -63,15 +63,26 @@
     </div>
     <div class="callout">
       <div class="num">1.278</div>
-      <div class="cap"><span class="tag-fiel">Fieles</span> — compran más de la mitad de los meses (93,7% de la venta del periodo)</div>
+      <div class="cap"><span class="tag-fiel">Cluster A</span> — compran más de la mitad de los meses (93,7% de la venta del periodo)</div>
     </div>
     <div class="callout">
       <div class="num">371</div>
-      <div class="cap"><span class="tag-ocasional">Ocasionales</span> — compran 2+ meses, pero menos de la mitad (5,6% de la venta)</div>
+      <div class="cap"><span class="tag-ocasional">Cluster B</span> — compran 2+ meses, pero menos de la mitad (5,6% de la venta)</div>
     </div>
     <div class="callout">
       <div class="num">153</div>
-      <div class="cap"><span class="tag-unico">Único</span> — compraron una sola vez (0,8% de la venta — excluidos del resto del análisis)</div>
+      <div class="cap"><span class="tag-unico">Cluster C</span> — compraron una sola vez (0,8% de la venta — excluidos del resto del análisis)</div>
+    </div>
+  </div>
+
+  <div class="two-col" style="margin-top:32px; grid-template-columns: 1fr 1fr;">
+    <div class="callout">
+      <div class="num">1.858</div>
+      <div class="cap">clientes activos en año móvil (ago-2025 a ago-2026)</div>
+    </div>
+    <div class="callout">
+      <div class="num">207</div>
+      <div class="cap">clientes inactivos — compraron antes, pero no en los últimos 12 meses</div>
     </div>
   </div>
 </section>
@@ -122,9 +133,9 @@
       <div class="fact-label">facturas en 11 meses</div>
     </div>
     <div class="fact-card">
-  <div class="fact-num">~11</div>
-  <div class="fact-label">hojas por día en promedio (mediana: 8 — el rango real va de 2 a 40 según el día)</div>
-  </div>
+      <div class="fact-num">~11</div>
+      <div class="fact-label">hojas por día en promedio (mediana: 8 — el rango real va de 2 a 40 según el día)</div>
+    </div>
     <div class="fact-card">
       <div class="fact-num">$4.500</div>
       <div class="fact-label">costo mensual estimado en papel</div>
@@ -176,9 +187,21 @@
   <h2>Dónde compran más los puntos con máquina instalada</h2>
   <p class="lede">Venta total (no promedio) de los clientes que tienen máquina, por comuna — Iquique lidera porque es donde más se compra, no por eficiencia de equipo.</p>
   <div class="chart-box"><canvas id="chartMaquinas"></canvas></div>
+
+  <div class="side-note" style="margin-top:24px; margin-bottom:24px;">
+    <span class="n">Alexis Inostroza</span> vende más ($748,9M) con menos máquinas (233) que el resto del equipo — la mejor venta por máquina de todos. <span class="n">Guillermo Frez</span> tiene solo 2 máquinas asignadas, reforzando que probablemente no es un vendedor de ruta.
+  </div>
+
+  <table class="risk">
+    <thead><tr><th>Vendedor</th><th style="text-align:right">Máquinas</th><th style="text-align:right">Venta total</th></tr></thead>
+    <tbody id="tablaMaquinasVendedor"></tbody>
+  </table>
 </section>
 
-
+<footer class="wrap">
+  <p class="serif" style="font-size:22px; color:var(--cream);">David Salvatierra — Práctica Nestlé Chile</p>
+  <p style="margin-top:8px; font-size:14px;">Periodo analizado: octubre 2025 – agosto 2026</p>
+</footer>
 
 <script src="script.js"></script>
 </body>
